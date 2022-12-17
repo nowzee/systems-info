@@ -39,16 +39,16 @@ def memory_usage1():
 
 def stockage_usage1():
     stockage = psutil.disk_usage('/').percent
-    if stockage > 50:
-        stockage_usage.configure(bootstyle="warning")
+    if stockage < 20:
+        stockage_usage.configure(bootstyle="danger")
         stockage_usage.configure(amountused=stockage)
         stockage_usage.after(1000, stockage_usage1)
     elif stockage < 50:
-        stockage_usage.configure(bootstyle="primary")
+        stockage_usage.configure(bootstyle="warning")
         stockage_usage.configure(amountused=stockage)
         stockage_usage.after(1000, stockage_usage1)
-    elif stockage > 80:
-        stockage_usage.configure(bootstyle="danger")
+    elif stockage < 80:
+        stockage_usage.configure(bootstyle="primary")
         stockage_usage.configure(amountused=stockage)
         stockage_usage.after(1000, stockage_usage1)
 
